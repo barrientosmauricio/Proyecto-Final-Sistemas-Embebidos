@@ -3,9 +3,10 @@
 # ## #############################################################
 # virtualboard.py
 #
-# Author: Mauricio Matamoros
+# Autor: Mauricio Matamoros
+# Author: Francisco Javier Solano Tavera, Salma Arelly Ramirez Fierro, Luis Mauricio Barrientos Veana
 # Licence: MIT
-# Date:
+# Date: 16/08/2021
 #
 # ## #############################################################
 # Future imports (Python 2.7 compatibility)

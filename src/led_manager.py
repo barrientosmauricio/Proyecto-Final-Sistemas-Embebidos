@@ -4,7 +4,10 @@
 # led_manager.py
 # Controls leds in the GPIO
 #
-# Autor: Francisco Javier Solano Tavera
+# Autor: Mauricio Matamoros
+# License: MIT
+# Autores: Francisco Javier Solano Tavera, Salma Arelly Ramirez Fierro, Luis Mauricio Barrientos Veana
+# Date: 16/08/2021			
 # 
 #
 # ## ###############################################
@@ -41,7 +44,7 @@ GPIO.setup(38, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(40, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(37, GPIO.OUT, initial=GPIO.LOW)
 
-# Declarando pwm en los pines que se utilizaran
+# DECLARANDO PWM EN LOS PINES A UTILIZAR
 pwm8 = GPIO.PWM(32, 1)
 pwm7 = GPIO.PWM(26, 1)
 pwm6 = GPIO.PWM(24, 1)
@@ -51,7 +54,7 @@ pwm3 = GPIO.PWM(16, 1)
 pwm2 = GPIO.PWM(12, 1)
 pwm1 = GPIO.PWM(10, 1)
 
-# Funcion que detiene la operacion de pwm
+# FUNCION QUE DETIENE LA OPERACION DEL PWM
 def pwm_off():	
 	pwm1.stop()
 	pwm2.stop()
@@ -63,7 +66,7 @@ def pwm_off():
 	pwm8.stop()
 pass
 
-#Funcion que detiene la operacion de los leds
+#FUNCION QUE DETIENE LA OPERACION DE LOS FOCOS
 def ledsoff():
 	GPIO.output(10, GPIO.LOW)
 	GPIO.output(12, GPIO.LOW)
@@ -79,23 +82,17 @@ def ledsoff():
 	GPIO.output(37, GPIO.LOW)
 pass
 
-""" Enciende el leds especificados en num, apagando los demás
-	(To be developed by the student)
-"""
 
-def leds(num):
-	ledsoff()
-	GPIO.output(32, GPIO.HIGH if (num & 0x00000001) > 0 else GPIO.LOW )
-	GPIO.output(26, GPIO.HIGH if (num & 0x00000002) > 0 else GPIO.LOW )
-	GPIO.output(24, GPIO.HIGH if (num & 0x00000004) > 0 else GPIO.LOW )
-	GPIO.output(22, GPIO.HIGH if (num & 0x00000008) > 0 else GPIO.LOW )
-	pass
 
-""" Activa el modo marquesina
-	type toma tres valores: left, right y pingpong
-	(To be developed by the student)
-"""
-def casa(type='pingpong'):
+# FUNCION QUE ACTIVA EL MODO CASA INTELIGENTE
+#	type toma 15 valores: luces, apagar_luces,
+#	camaras, camaras_apagadas, timbre, atenuar_75,
+#	atenuar_50, atenuar_25, atenuar_10, abrir_cochera,
+#	cerrar_cochera, programar_encendido_luces6,
+#	programar_encendido_luces12, programar_apagado_luces6
+
+
+def casa(type='inteligente'):
 	switcher = {
 		'luces'     : _casa_luces,
 		'apagar_luces'    : _casa_apagar_luces,
@@ -107,26 +104,17 @@ def casa(type='pingpong'):
 		'atenuar_25' : _casa_atenuar_25,
 		'atenuar_10' : _casa_atenuar_10,
 		'abrir_cochera' : _casa_abrir_cochera,
-		'cerrar_cochera' : _casa_cerrar_cochera
+		'cerrar_cochera' : _casa_cerrar_cochera,
+		'programar_encendido_luces6' : _casa_programar_encendido_luces6,
+		'programar_encendido_luces12' : _casa_programar_encendido_luces12,
+		'programar_apagado_luces6' : _casa_programar_apagado_luces6,
+		'programar_apagado_luces12' : _casa_programar_apagado_luces12
+
 
 	}
 	func = switcher.get(type, None)
 	if func:
 		func()
-
-
-"""	Despliega en número proporcionado en el display de siete segmentos.
-	(To be developed by the student)
-"""
-
-def bcd(num):
-	ledsoff()
-	GPIO.output(36, GPIO.HIGH if (num & 0x00000001) > 0 else GPIO.LOW )
-	GPIO.output(38, GPIO.HIGH if (num & 0x00000002) > 0 else GPIO.LOW )
-	GPIO.output(40, GPIO.HIGH if (num & 0x00000004) > 0 else GPIO.LOW )
-	GPIO.output(37, GPIO.HIGH if (num & 0x00000008) > 0 else GPIO.LOW )
-	pass
-
 
 
 
@@ -306,6 +294,8 @@ def _casa_abrir_cochera():
 	GPIO.output(32, GPIO.HIGH) # Turn led on
 	sleep(0.5)                 # Espera 500ms
 	GPIO.output(32, GPIO.LOW)  # Turn led off
+	print("Abriendo cochera%")
+
 	pass
 
 
@@ -336,8 +326,78 @@ def _casa_cerrar_cochera():
 	GPIO.output(10, GPIO.HIGH) # Turn led on
 	sleep(0.5)                 # Espera 500ms
 	GPIO.output(10, GPIO.LOW)  # Turn led off'''
-
+	print("Cerrando cochera%")
 	pass
 
 
 ################### ABRIR Y CERRAR COCHERA #####################
+
+################### PROGRAMADO DE ENCENDIDO/APAGADO DE LUCES #####################
+
+
+def _casa_programar_encendido_luces6():
+	ledsoff()
+	pwm_off()	
+
+	sleep(6)                 # Wait 500ms
+	GPIO.output(32, GPIO.HIGH)  # Turn led off
+	GPIO.output(26, GPIO.HIGH)
+	GPIO.output(24, GPIO.HIGH)
+	GPIO.output(22, GPIO.HIGH)
+	GPIO.output(18, GPIO.HIGH)
+	GPIO.output(16, GPIO.HIGH)
+	GPIO.output(12, GPIO.HIGH)
+	GPIO.output(10, GPIO.HIGH)
+	print("Encendiendo luces en 6 segundos%")
+	pass
+
+def _casa_programar_encendido_luces12():
+	ledsoff()
+	pwm_off()	
+
+	sleep(12)                 # Wait 500ms
+	GPIO.output(32, GPIO.HIGH)  # Turn led off
+	GPIO.output(26, GPIO.HIGH)
+	GPIO.output(24, GPIO.HIGH)
+	GPIO.output(22, GPIO.HIGH)
+	GPIO.output(18, GPIO.HIGH)
+	GPIO.output(16, GPIO.HIGH)
+	GPIO.output(12, GPIO.HIGH)
+	GPIO.output(10, GPIO.HIGH)
+	print("Encendiendo luces en 12 segundos%")
+	pass
+
+
+def _casa_programar_apagado_luces6():
+	
+	pwm_off()	
+
+	sleep(6)                 # Wait 500ms
+	GPIO.output(32, GPIO.LOW)  # Turn led off
+	GPIO.output(26, GPIO.LOW)
+	GPIO.output(24, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
+	GPIO.output(18, GPIO.LOW)
+	GPIO.output(16, GPIO.LOW)
+	GPIO.output(12, GPIO.LOW)
+	GPIO.output(10, GPIO.LOW)
+	print("Apagando luces en 6 segundos%")
+	pass
+
+def _casa_programar_apagado_luces12():
+	
+	pwm_off()	
+
+	sleep(12)                 # Wait 500ms
+	GPIO.output(32, GPIO.LOW)  # Turn led off
+	GPIO.output(26, GPIO.LOW)
+	GPIO.output(24, GPIO.LOW)
+	GPIO.output(22, GPIO.LOW)
+	GPIO.output(18, GPIO.LOW)
+	GPIO.output(16, GPIO.LOW)
+	GPIO.output(12, GPIO.LOW)
+	GPIO.output(10, GPIO.LOW)
+	print("Apagando luces en 12 segundos%")
+	pass
+
+################### PROGRAMADO DE ENCENDIDO/APAGADO DE LUCES #####################

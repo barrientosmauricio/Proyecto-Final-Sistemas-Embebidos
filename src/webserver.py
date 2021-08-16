@@ -6,6 +6,8 @@
 #
 # Autor: Mauricio Matamoros
 # License: MIT
+# Autores: Francisco Javier Solano Tavera, Salma Arelly Ramirez Fierro, Luis Mauricio Barrientos Veana
+# Date: 16/08/2021
 #
 # ## ###############################################
 
@@ -18,7 +20,7 @@ import os
 import sys
 import json
 import magic
-from led_manager import leds, bcd, casa
+from led_manager import casa
 from http.server import BaseHTTPRequestHandler, HTTPServer
 # import time
 # import time
@@ -63,9 +65,8 @@ class WebServer(BaseHTTPRequestHandler):
 		if not 'action' in json_obj or not 'value' in json_obj:
 			return
 		switcher = {
-			'led'     : leds,
-			'casa' : casa,
-			'numpad'  : bcd
+			'casa' : casa
+	
 		}
 		func = switcher.get(json_obj['action'], None)
 		if func:

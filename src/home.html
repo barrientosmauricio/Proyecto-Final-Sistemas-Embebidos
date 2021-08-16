@@ -1,3 +1,11 @@
+<!-- 
+
+home.html
+Autores: Francisco Javier Solano Tavera, Salma Arelly Ramirez Fierro, Luis Mauricio Barrientos Veana
+Date: 16/08/2021			
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <title>Training Studio - Free CSS Template</title>
+    <title>Proyecto FSEM Smart Home</title>
 
     </head>
     
@@ -22,15 +30,54 @@
             <div class="nav-wrapper">
               <a href="#" class="brand-logo">UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">Salma Arelly Ramirez Fierro</a></li>
-                <li><a href="badges.html">Francisco Javier Solano Tavera</a></li>
-                <li><a href="collapsible.html">Luis Mauricio Barrientos Veana</a></li>
+                <li><a href="https://github.com/SalmaFierro23/Proyecto-Final-Sistemas-Embebidos.git">Salma Arelly Ramirez Fierro</a></li>
+                <li><a href="https://github.com/Javier234/Proyecto-Final-Sistemas-Embebidos.git">Francisco Javier Solano Tavera</a></li>
+                <li><a href="https://github.com/barrientosmauricio/Proyecto-Final-Sistemas-Embebidos.git">Luis Mauricio Barrientos Veana</a></li>
               </ul>
             </div>
           </nav>
 
           
-        <header><h1>PROYECTO FINAL - FUNDAMENTOS DE SISTEMAS EMBEBIDOS</h1></header>
+        <!--<header><h1>PROYECTO FINAL - FUNDAMENTOS DE SISTEMAS EMBEBIDOS</h1></header> -->
+        <header>
+
+          <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+          <div class="overlay"></div>
+      
+        
+          <!-- The header content -->
+          <div class="container h-100">
+            <div class="d-flex h-100 text-center align-items-center">
+              <div class="w-100 text-white">
+                <h1 class="display-3">FINAL PROJECT - EMBEDDED SYSTEMS FUNDAMENTALS</h1>
+                <h4 class="lead mb-0">Smart Home</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- The HTML5 video element that will create the background video on the header 
+          <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+          </video>-->
+
+        
+
+        </header>
+        
+        <!-- Page section example for content below the video header -->
+        <section class="my-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <p>Professor: Jose Mauricio Matamoros de Maria y Campos.</p>
+                <p>This project simulates a hub that allows you to remotely monitor and manage linked smart home devices via browser.</p>
+                <p class="mb-0">
+                 Video: <a href=""></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
 <!--PRIMERA LINEA DE 3 BOTONES-->
         <div class="row">
@@ -40,16 +87,16 @@
                     <div class="col s12">
                     <div class="card">
                         <div class="card-image">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_965705-MLM42357108010_062020-O.jpg">
-                        <span class="card-title">FOCOS</span>
+                        <img src="https://i.pinimg.com/474x/dd/d2/ee/ddd2ee6bd8dabd1133dc1c7834b6b366.jpg">
+                        <span class="card-title">SPOTLIGHTS</span>
                         </div>
                         <div class="card-content">
-                        <p>Presiona Encender si quieres prender los 8 focos de tu casa.
-                        De lo contrario presiona Apagar focos.</p>
+                        <p>Press Turn On if you want to turn on all 8 lights in your house.
+                          Otherwise press Turn off lights.</p>
                         </div>
                         <div class="card-action">
-                            <a onclick="handle(this, 'casa', 'luces')" class="waves-effect waves-light btn modal-trigger" href="#modal1">Encender</a>
-                            <a onclick="handle(this, 'casa', 'apagar_luces')" class="waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right">cloud</i>Apagar focos</a>
+                            <a onclick="handle(this, 'casa', 'luces')" class="waves-effect waves-light btn modal-trigger" href="#modal1">Turn on lights</a>
+                            <a onclick="handle(this, 'casa', 'apagar_luces')" class="waves-effect waves-light btn modal-trigger" href="#modal2"><i class="material-icons right"></i>Turn off lights</a>
                         </div>
                     </div>
                     </div>
@@ -61,15 +108,15 @@
                   <div class="col s12">
                   <div class="card">
                       <div class="card-image">
-                      <img src="https://unpunto.shop/wp-content/uploads/camara-de-seguridad-wi-fi-ethernet-full-hd-robotizada-con-seguidor-de-movimiento-para-exterior-256x256.jpg">
-                      <span class="card-title">CAMARAS</span>
+                      <img src="https://lh3.googleusercontent.com/proxy/lYztjyEif1YC5B0un0oal0Xb02h0gYTrSoxwFSAfghd8SlIrtD1Vy_1bNeFWVGl7Lb7eCOKLW-nudELFmAW2v9fOk9dt_4Z5gWrfsNaONXB20NWjZk3yULSUi5nE3UQfWJyLyH0">
+                      <span class="card-title">CAMERAS</span>
                       </div>
                       <div class="CAMARAS">
-                      <p>Sospechas peligro por tu casa? Presiona encender camaras .</p>
+                      <p> Do you suspect danger around your house? Press turn on cameras.</p>
                       </div>
                       <div class="card-action">
-                          <a onclick="handle(this, 'casa', 'camaras')" class="waves-effect waves-light btn modal-trigger" href="#modal3">Encender camaras de vigilancia</a>
-                          <a onclick="handle(this, 'casa', 'camaras_apagadas')" class="waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right">cloud</i>Apagar camaras</a>
+                          <a onclick="handle(this, 'casa', 'camaras')" class="waves-effect waves-light btn modal-trigger" href="#modal3">Turn on cameras</a>
+                          <a onclick="handle(this, 'casa', 'camaras_apagadas')" class="waves-effect waves-light btn modal-trigger" href="#modal4"><i class="material-icons right"></i>Turn off cameras</a>
                       </div>
                   </div>
                   </div>
@@ -81,17 +128,17 @@
                 <div class="col s12">
                 <div class="card">
                     <div class="card-image">
-                    <img src="https://rca.com.ec/web/image/product.template/79/image_256">
-                    <span class="card-title">QUIERES ATENUAR TUS FOCOS?</span>
+                    <img src="https://m.media-amazon.com/images/I/61yHbemiOfL._CR0,204,1224,1224_UX256.jpg">
+                    <span class="card-title"> ATTENUATE LIGHTS</span>
                     </div>
                     <div class="">
-                    <p>Si te molesta la luz puedes atenuar tus focos como tu quieras.</p>
+                    <p>If the light bothers you, you can dim your lights as you want.</p>
                     </div>
                     <div class="card-action">
-                        <a onclick="handle(this, 'casa', 'atenuar_75')" class="waves-effect waves-light btn modal-trigger" href="#modal5">Atenuar 75%</a>
-                        <a onclick="handle(this, 'casa', 'atenuar_50')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right">cloud</i>Atenuar 50%</a>
-                        <a onclick="handle(this, 'casa', 'atenuar_25')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right">cloud</i>Atenuar 25%</a>
-                        <a onclick="handle(this, 'casa', 'atenuar_10')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right">cloud</i>Atenuar 10%</a>
+                        <a onclick="handle(this, 'casa', 'atenuar_75')" class="waves-effect waves-light btn modal-trigger" href="#modal5">Attenuate 75%</a>
+                        <a onclick="handle(this, 'casa', 'atenuar_50')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right"></i>Attenuate 50%</a>
+                        <a onclick="handle(this, 'casa', 'atenuar_25')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right"></i>Attenuate 25%</a>
+                        <a onclick="handle(this, 'casa', 'atenuar_10')" class="waves-effect waves-light btn modal-trigger" href="#modal6"><i class="material-icons right"></i>Attenuate 10%</a>
                     </div>
                 </div>
                 </div>
@@ -108,13 +155,13 @@
                   <div class="card">
                       <div class="card-image">
                       <img src="https://m.media-amazon.com/images/I/61qhg110-AL._CR0,521,986,986_UX256.jpg">
-                      <span class="card-title">TIMBRE</span>
+                      <span class="card-title">DOORBELL</span>
                       </div>
                       <div class="card-content">
-                      <p>Si deseas entrar a casa, toca el timbre.</p>
+                      <p>If you want to enter the house, ring the bell.</p>
                       </div>
                       <div class="card-action">
-                          <a onclick="handle(this, 'casa', 'timbre')" class="waves-effect waves-light btn modal-trigger" href="#modal7">Tocar timbre</a>
+                          <a onclick="handle(this, 'casa', 'timbre')" class="waves-effect waves-light btn modal-trigger" href="#modal7">Ring the doorbell</a>
                       </div>
                   </div>
                   </div>
@@ -126,15 +173,15 @@
                 <div class="col s12">
                 <div class="card">
                     <div class="card-image">
-                    <img src="https://cdn.21online.lat/mexico/cache/awsTest1/rc/KutoEiDt/uploads/448/propiedades/350672/5e604df0649e1.jpg">
-                    <span class="card-title">COCHERA</span>
+                    <img src="https://i.pinimg.com/474x/a1/82/6d/a1826d39f5668d0b929f2cfabc98024b.jpg">
+                    <span class="card-title">GARAGE</span>
                     </div>
                     <div class="card-content">
-                    <p>Presiona abrir cochera para meter o sacar tu auto.</p>
+                    <p>Press open garage in case you want to put your car in or out.</p>
                     </div>
                     <div class="card-action">
-                        <a onclick="handle(this, 'casa', 'abrir_cochera')" class="waves-effect waves-light btn modal-trigger" href="#modal9">Abrir cochera</a>
-                        <a onclick="handle(this, 'casa', 'cerrar_cochera')" class="waves-effect waves-light btn modal-trigger" href="#modal10"><i class="material-icons right">cloud</i>Cerrar cochera</a>
+                        <a onclick="handle(this, 'casa', 'abrir_cochera')" class="waves-effect waves-light btn modal-trigger" href="#modal9">Open garage</a>
+                        <a onclick="handle(this, 'casa', 'cerrar_cochera')" class="waves-effect waves-light btn modal-trigger" href="#modal10"><i class="material-icons right"></i>Close garage</a>
                     </div>
                 </div>
                 </div>
@@ -146,15 +193,17 @@
               <div class="col s12">
               <div class="card">
                   <div class="card-image">
-                  <img src="https://www.plazamenaje.com/web/image/product.template/1292/image_256/%5B100404%5D%20Temporizador-Reloj%20Digital%20UPDATE%20TIMD-HM?unique=84d4064">
-                  <span class="card-title">TEMPORIZADOR</span>
+                  <img src="https://m.media-amazon.com/images/I/B1hq4m-rvfS._CR1062,0,1908,1908_UX256.jpg">
+                  <span class="card-title">LIGHTS TIMER</span>
                   </div>
                   <div class="card-content">
-                  <p>Ajusta el encendido o apagado de tus focos.</p>
+                  <p>Set the time you want to turn on or off your lights.</p>
                   </div>
                   <div class="card-action">
-                      <a onclick="handle(this, 'casa', 'left')" class="waves-effect waves-light btn modal-trigger" href="#modal11">Temporizador de focos</a>
-                      <a onclick="handle(this, 'casa', 'right')" class="waves-effect waves-light btn modal-trigger" href="#modal12"><i class="material-icons right">cloud</i>Apagar focos</a>
+                      <a onclick="handle(this, 'casa', 'programar_encendido_luces6')" class="waves-effect waves-light btn modal-trigger" href="#modal11">Turn on lights in 60 min </a>
+                      <a onclick="handle(this, 'casa', 'programar_encendido_luces12')" class="waves-effect waves-light btn modal-trigger" href="#modal11"><i class="material-icons right"></i>Turn on lights in 120 min</a>
+                      <a onclick="handle(this, 'casa', 'programar_apagado_luces6')" class="waves-effect waves-light btn modal-trigger" href="#modal12"><i class="material-icons right"></i>Turn off lights in 60 min</a>
+                      <a onclick="handle(this, 'casa', 'programar_apagado_luces12')" class="waves-effect waves-light btn modal-trigger" href="#modal12"><i class="material-icons right"></i>Turn off lights in 120 min</a>
                   </div>
               </div>
               </div>
@@ -162,7 +211,7 @@
         </div>
 
       </div>
-
+ 
 
 
             <!-- Modal Trigger -->
@@ -182,10 +231,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDrN4iHEQvyHTtxvRTGkPmGiyZq8TjwRJ21g&usqp=CAU">
-              <span class="card-title">FOCOS ENCENDIDOS</span>
+              <span class="card-title">LIGHTS ON</span>
             </div>
             <div class="card-content">
-              <p>Los 8 focos de tu casa se han encendido.</p>
+              <p>The 8 lights in your house have turned on.</p>
             </div>
           </div>
     </div>
@@ -200,10 +249,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://s.cdnshm.com/catalog/mx/t/52564811/foco-led-tipo-bulbo-energain-de-12-watts-luz-blanca-frio.jpg">
-              <span class="card-title">FOCOS APAGADOS</span>
+              <span class="card-title">LIGHTS OFF</span>
             </div>
             <div class="card-content">
-              <p>Todos tus focos se han apagado.</p>
+              <p>All your lights have turned off.</p>
             </div>
           </div>
     </div>
@@ -219,10 +268,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://ak.picdn.net/shutterstock/videos/1035633218/thumb/1.jpg?ip=x480">
-              <span class="card-title">CAMARAS ENCENDIDAS</span>
+              <span class="card-title">CAMERAS ON</span>
             </div>
             <div class="card-content">
-              <p>En este momento se han activado las camaras de seguridad.</p>
+              <p>At this moment the security cameras have been activated.</p>
             </div>
           </div>
     </div>
@@ -237,10 +286,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://ak.picdn.net/shutterstock/videos/1007106691/thumb/1.jpg">
-              <span class="card-title">CAMARAS ENCENDIDAS</span>
+              <span class="card-title">CAMERAS OFF</span>
             </div>
             <div class="card-content">
-              <p>Tus camaras se han desactivado.</p>
+              <p>Your cameras have been deactivated.</p>
             </div>
           </div>
     </div>
@@ -255,10 +304,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://www.mndelgolfo.com/blog/wp-content/uploads/2017/09/elegir-timbre-para-puerta-casa.jpg">
-              <span class="card-title">TIMBRE SONANDO</span>
+              <span class="card-title">THE BELL IS RINGING</span>
             </div>
             <div class="card-content">
-              <p>Tocaste el timbre.</p>
+              <p>You rang the bell.</p>
             </div>
           </div>
     </div>
@@ -273,10 +322,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://casaydiseno.com/wp-content/uploads/2016/09/organizacion-garaje-consejos-espacio-utilizar-mejor-forma.jpg">
-              <span class="card-title">COCHERA ABIERTA</span>
+              <span class="card-title">OPEN GARAGE</span>
             </div>
             <div class="card-content">
-              <p>La cochera se esta abriendo.</p>
+              <p>The garage is opening.</p>
             </div>
           </div>
     </div>
@@ -291,10 +340,10 @@
         <div class="card">
             <div class="card-image">
               <img src="https://http2.mlstatic.com/D_NQ_NP_855516-MLM27311565295_052018-W.jpg">
-              <span class="card-title">COCHERA CERRADA</span>
+              <span class="card-title">CLOSED GARAGE</span>
             </div>
             <div class="card-content">
-              <p>La cochera se esta cerrando.</p>
+              <p>The garage is closing.</p>
             </div>
           </div>
     </div>
@@ -310,17 +359,15 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Nuestra ubicacion</h5>
+          <h5 class="white-text">Our location</h5>
           <img src="http://www.ib.unam.mx/m/img/flatpages/botanica/herbario/ubicacion/mapa-norte2.JPG">
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <p class="grey-text text-lighten-4"></p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
+          <!--<h5 class="white-text">Links</h5>-->
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+           <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
+        
           </ul>
         </div>
       </div>
@@ -328,7 +375,7 @@
     <div class="footer-copyright">
       <div class="container">
       © 2021 Copyright 
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
       </div>
     </div>
   </footer>
