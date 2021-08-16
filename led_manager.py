@@ -27,7 +27,7 @@ import virtualboard
 # Set up Rpi.GPIO library to use physical pin numbers
 GPIO.setmode(GPIO.BOARD)
 
-# Set up pin no. 32 as output and default it to low
+# Set up pins as output and default it to low
 GPIO.setup(32, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(26, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(24, GPIO.OUT, initial=GPIO.LOW)
@@ -40,8 +40,30 @@ GPIO.setup(36, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(38, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(40, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(37, GPIO.OUT, initial=GPIO.LOW)
-pwm = GPIO.PWM(32, 1)
 
+# Declarando pwm en los pines que se utilizaran
+pwm8 = GPIO.PWM(32, 1)
+pwm7 = GPIO.PWM(26, 1)
+pwm6 = GPIO.PWM(24, 1)
+pwm5 = GPIO.PWM(22, 1)
+pwm4 = GPIO.PWM(18, 1)
+pwm3 = GPIO.PWM(16, 1)
+pwm2 = GPIO.PWM(12, 1)
+pwm1 = GPIO.PWM(10, 1)
+
+# Funcion que detiene la operacion de pwm
+def pwm_off():	
+	pwm1.stop()
+	pwm2.stop()
+	pwm3.stop()
+	pwm4.stop()
+	pwm5.stop()
+	pwm6.stop()
+	pwm7.stop()
+	pwm8.stop()
+pass
+
+#Funcion que detiene la operacion de los leds
 def ledsoff():
 	GPIO.output(10, GPIO.LOW)
 	GPIO.output(12, GPIO.LOW)
@@ -73,13 +95,20 @@ def leds(num):
 	type toma tres valores: left, right y pingpong
 	(To be developed by the student)
 """
-def marquee(type='pingpong'):
+def casa(type='pingpong'):
 	switcher = {
-		'left'     : _marquee_left,
-		'right'    : _marquee_right,
-		'pingpong' : _marquee_pingpong,
-		'timbre'   : _marquee_timbre,
-		'atenuado' : _marquee_atenuado
+		'luces'     : _casa_luces,
+		'apagar_luces'    : _casa_apagar_luces,
+		'camaras' : _casa_camaras,
+		'camaras_apagadas' : _casa_camaras_apagadas,
+		'timbre'   : _casa_timbre,
+		'atenuar_75' : _casa_atenuar_75,
+		'atenuar_50' : _casa_atenuar_50,
+		'atenuar_25' : _casa_atenuar_25,
+		'atenuar_10' : _casa_atenuar_10,
+		'abrir_cochera' : _casa_abrir_cochera,
+		'cerrar_cochera' : _casa_cerrar_cochera
+
 	}
 	func = switcher.get(type, None)
 	if func:
@@ -99,10 +128,13 @@ def bcd(num):
 	pass
 
 
-""" ENCIENDE LAS LUCES"""
 
-def _marquee_left():
+
+################## ENCENDER/APAGAR CAMARAS DE VIGILANCIA ####################
+
+def _casa_luces():
 	ledsoff()
+	pwm_off()	
 
 #while True: # Forever
 	                # Wait 500ms
@@ -119,37 +151,12 @@ def _marquee_left():
 	
 	pass
 
-	#sleep(0.5)                 # Wait 500ms
-	'''GPIO.output(10, GPIO.HIGH) # Turn led on
-	sleep(0.5)
-	GPIO.output(10, GPIO.LOW)  # Turn led off
-	GPIO.output(12, GPIO.HIGH) # Turn led on
-	sleep(0.5)
-	GPIO.output(12, GPIO.LOW)  # Turn led off
-	GPIO.output(16, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(16, GPIO.LOW)  # Turn led off
-	GPIO.output(18, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(18, GPIO.LOW)  # Turn led off
-	GPIO.output(22, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(22, GPIO.LOW)  # Turn led off
-	GPIO.output(24, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(24, GPIO.LOW)  # Turn led off
-	GPIO.output(26, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(26, GPIO.LOW)  # Turn led off
-	GPIO.output(32, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(32, GPIO.LOW)  # Turn led off
-	pass'''
 
 """ APAGA LAS LUCES"""
 
-def _marquee_right():
+def _casa_apagar_luces():
 	ledsoff()
+	pwm_off()	
 
 	GPIO.output(32, GPIO.LOW)  # Turn led off
 	GPIO.output(26, GPIO.LOW)
@@ -161,46 +168,121 @@ def _marquee_right():
 	GPIO.output(10, GPIO.LOW) 
 
 	print("Luces Apagadas")
-	#sleep(0.5)                 # Wait 500ms
-	'''GPIO.output(32, GPIO.HIGH) # Turn led on
-	sleep(0.5)
-	GPIO.output(32, GPIO.LOW)  # Turn led off
-	GPIO.output(26, GPIO.HIGH) # Turn led on
-	sleep(0.5)
-	GPIO.output(26, GPIO.LOW)  # Turn led off
-	GPIO.output(24, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(24, GPIO.LOW)  # Turn led off
-	GPIO.output(22, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(22, GPIO.LOW)  # Turn led off
-	GPIO.output(18, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(18, GPIO.LOW)  # Turn led off
-	GPIO.output(16, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(16, GPIO.LOW)  # Turn led off
-	GPIO.output(12, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(12, GPIO.LOW)  # Turn led off
-	GPIO.output(10, GPIO.HIGH) # Turn led on
-	sleep(0.5)                 # Espera 500ms
-	GPIO.output(10, GPIO.LOW)  # Turn led off'''
+
+################## ENCENDER/APAGAR CAMARAS DE VIGILANCIA ####################
+
+
+################## ACTIVAR/DESACTIVAR CAMARAS DE VIGILANCIA ####################
+def _casa_camaras():
+	ledsoff()
+	
+	pwm6.start(50) #Se activa sexta camara 
+	pwm5.start(50) #Se activa quinta camara
+	pwm4.start(50) #Se activa cuarta camara
+	pwm3.start(50) #Se activa tercera camara
+	print("Desplegado de camaras de vigilancia")
 
 	pass
 
-""" ACTIVA CAMARAS DE VIGILANCIA"""
-
-def _marquee_pingpong():
+""" DESACTIVA CAMARAS DE VIGILANCIA"""
+def _casa_camaras_apagadas():
 	ledsoff()
-	GPIO.output(12, GPIO.HIGH)
-	GPIO.output(16, GPIO.HIGH)
-	sleep(0.5)
-	GPIO.output(12, GPIO.LOW)
-	GPIO.output(16, GPIO.LOW)
-	print("Desplegado de camaras de vigilancia")
+	pwm_off()
 
-	'''GPIO.output(10, GPIO.HIGH) # Turn led on
+	print("Apagando camaras de vigilancia")
+	
+	
+	pass
+################## ACTIVAR/DESACTIVAR CAMARAS DE VIGILANCIA ####################
+
+
+################## ACTIVAR TIMBRE ####################
+def _casa_timbre():
+	ledsoff()
+	pwm_off()
+	GPIO.output(10, GPIO.HIGH)
+	print("Timbre ON")
+	sleep(2)
+    
+	GPIO.output(10, GPIO.LOW)
+	print("Timbre OFF")
+	sleep(1)
+################## ACTIVAR TIMBRE ####################
+
+			
+################## ATENUAR FOCOS ####################
+	pass
+
+def _casa_atenuar_75():
+	pwm_off()
+	ledsoff()
+	pwm8.start(75)
+	pwm7.start(75)
+	pwm6.start(75)
+	pwm5.start(75)
+	pwm4.start(75)
+	pwm3.start(75)
+	pwm2.start(75)
+	pwm1.start(75)
+	print("Atenuendo focos al 75%")
+
+	pass	
+
+def _casa_atenuar_50():
+	pwm_off()
+	ledsoff()
+	pwm8.start(50)
+	pwm7.start(50)
+	pwm6.start(50)
+	pwm5.start(50)
+	pwm4.start(50)
+	pwm3.start(50)
+	pwm2.start(50)
+	pwm1.start(50)
+	print("Atenuendo focos al 50%")	
+
+	pass
+
+def _casa_atenuar_25():
+	pwm_off()
+	ledsoff()
+	pwm8.start(25)
+	pwm7.start(25)
+	pwm6.start(25)
+	pwm5.start(25)
+	pwm4.start(25)
+	pwm3.start(25)
+	pwm2.start(25)
+	pwm1.start(25)
+	print("Atenuendo focos al 25%")
+
+	pass
+
+def _casa_atenuar_10():
+	pwm_off()
+	ledsoff()
+	pwm8.start(10)
+	pwm7.start(10)
+	pwm6.start(10)
+	pwm5.start(10)
+	pwm4.start(10)
+	pwm3.start(10)
+	pwm2.start(10)
+	pwm1.start(10)
+	print("Atenuendo focos al 10%")
+
+	pass		
+#####################  ATENUAR FOCOS ######################
+
+
+################### ABRIR Y CERRAR COCHERA #####################
+
+def _casa_abrir_cochera():
+	pwm_off()
+	ledsoff()
+	
+	sleep(0.5)                 # Wait 500ms
+	GPIO.output(10, GPIO.HIGH) # Turn led on
 	sleep(0.5)
 	GPIO.output(10, GPIO.LOW)  # Turn led off
 	GPIO.output(12, GPIO.HIGH) # Turn led on
@@ -224,6 +306,12 @@ def _marquee_pingpong():
 	GPIO.output(32, GPIO.HIGH) # Turn led on
 	sleep(0.5)                 # Espera 500ms
 	GPIO.output(32, GPIO.LOW)  # Turn led off
+	pass
+
+
+def _casa_cerrar_cochera():
+		
+	sleep(0.5)                 # Wait 500ms
 	GPIO.output(32, GPIO.HIGH) # Turn led on
 	sleep(0.5)
 	GPIO.output(32, GPIO.LOW)  # Turn led off
@@ -248,62 +336,8 @@ def _marquee_pingpong():
 	GPIO.output(10, GPIO.HIGH) # Turn led on
 	sleep(0.5)                 # Espera 500ms
 	GPIO.output(10, GPIO.LOW)  # Turn led off'''
-	pass
-
-
-def _marquee_timbre():
-	ledsoff()
-	GPIO.output(10, GPIO.HIGH)
-	print("Timbre ON")
-	sleep(2)
-    
-	GPIO.output(10, GPIO.LOW)
-	print("Timbre OFF")
-	sleep(1)
-	
-
-
-	'''flag = True
-	while flag:
-		GPIO.output(10, GPIO.HIGH)
-		
-		print("Tocando Timbre")
-
-		try:
-			flag= False
-			GPIO.output(10, GPIO.LOW)
-			#print("No hay nadie")
-			#print("Soltaste Timbre")
-			#flag= False
-			#if _marquee_timbre == TRUE:
-			
-		except: 
-			
-			print("No hay nadie")'''
-			
 
 	pass
 
-def _marquee_atenuado():
-	ledsoff()
-#pwm = GPIO.PWM(32, 1)
-	print("Starting pwm")
-# Set duty cycle to 50% to blink 500ms on 500ms off
-	pwm.start(50)
-	print("Pwm started")
-	flag = True
 
-	# Blink the led
-	while flag:
-		try:
-			dutyCycle = int(input("Set duty cycle: "))
-			pwm.ChangeDutyCycle(dutyCycle)
-		except:
-			flag = False
-			pwm.ChangeDutyCycle(0)
-
-# Stop the PWM
-	pwm.stop()
-# Reset all ports to its default state (inputs)
-#GPIO.cleanup()
-	pass		
+################### ABRIR Y CERRAR COCHERA #####################

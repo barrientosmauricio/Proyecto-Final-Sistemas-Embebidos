@@ -18,14 +18,14 @@ import os
 import sys
 import json
 import magic
-from led_manager import leds, bcd, marquee
+from led_manager import leds, bcd, casa
 from http.server import BaseHTTPRequestHandler, HTTPServer
 # import time
 # import time
 
 # Nombre o dirección IP del sistema anfitrión del servidor web
 # address = "localhost"
-address = "192.168.1.83"
+address = "192.168.1.64"
 # Puerto en el cual el servidor estará atendiendo solicitudes HTTP
 # El default de un servidor web en produción debe ser 80
 port = 8080
@@ -64,7 +64,7 @@ class WebServer(BaseHTTPRequestHandler):
 			return
 		switcher = {
 			'led'     : leds,
-			'marquee' : marquee,
+			'casa' : casa,
 			'numpad'  : bcd
 		}
 		func = switcher.get(json_obj['action'], None)
