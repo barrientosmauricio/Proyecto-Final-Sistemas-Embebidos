@@ -118,7 +118,7 @@ def casa(type='inteligente'):
 
 
 
-################## ENCENDER/APAGAR CAMARAS DE VIGILANCIA ####################
+################## ENCENDER/APAGAR FOCOS ####################
 
 def _casa_luces():
 	ledsoff()
@@ -156,8 +156,8 @@ def _casa_apagar_luces():
 	GPIO.output(10, GPIO.LOW) 
 
 	print("Luces Apagadas")
-
-################## ENCENDER/APAGAR CAMARAS DE VIGILANCIA ####################
+	pass
+################## ENCENDER/APAGAR FOCOS ####################
 
 
 ################## ACTIVAR/DESACTIVAR CAMARAS DE VIGILANCIA ####################
