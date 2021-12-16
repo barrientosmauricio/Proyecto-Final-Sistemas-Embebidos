@@ -1,5 +1,5 @@
-# Proyecto-Final-Sistemas-Embebidos
-# 
+# Proyecto-Sistemas-Embebidos
+# Proyecto final de Teoria para la materia de Sistemas Embebidos
 
 ## Members ✒
 
