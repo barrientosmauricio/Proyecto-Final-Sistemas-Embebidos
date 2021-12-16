@@ -1,5 +1,6 @@
-# Proyecto-Sistemas-Embebidos
-# Proyecto final de Teoria para la materia de Sistemas Embebidos
+# Proyecto-Final-Sistemas-Embebidos
+
+Simulación de un concentrador que permite monitorear y administrar remotamente vía navegador los dispositivos inteligentes domésticos vinculados.
 
 ## Members ✒
 
